@@ -1,7 +1,7 @@
 require_relative 'homework_methods'
 
 puts "Введите ваше имя и фамилию: "
-name, surname = gets.chomp
+name, surname = gets.chomp.split(' ')
 puts "Введите ваш возраст: "
 age = gets.to_i
 
