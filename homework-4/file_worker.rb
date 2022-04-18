@@ -89,5 +89,3 @@ def delete(id)
 
   File.delete("temp_#{FILE_NAME}") if File.exist?(FILE_NAME)
 end
-
-puts delete(0)

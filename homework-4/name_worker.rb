@@ -6,11 +6,10 @@ def names_worker
 
   inputed_ages = []
 
-  while true
-    age = gets.chomp.to_i
-    while inputed_ages.include?(age)
+  while (age = gets.chomp.to_i)
+    if inputed_ages.include?(age)
       puts "Вы уже выводили людей с таким возрастом в файл results. Повторите ввод или введите -1."
-      age = gets.chomp.to_i
+      next
     end
     inputed_ages << age
     break if age == -1
@@ -37,5 +36,3 @@ def names_worker
     break if file_size <= result_file_size
   end
 end
-
-puts names_worker
