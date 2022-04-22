@@ -7,3 +7,7 @@ group :test do
   gem 'rspec-expectations'
   gem 'rspec-mocks'
 end
+
+group :utils do
+  gem 'fileutils'
+end

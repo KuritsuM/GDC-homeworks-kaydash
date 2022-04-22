@@ -39,7 +39,7 @@ def update(id, text)
 
   temp_file_write = File.open("temp_#{FILE_NAME}", "a")
   if id > temp_lines_counter
-    (id - temp_lines_counter).downto(0) { temp_file_write.write("\n") }
+    (id - temp_lines_counter).downto(1) { temp_file_write.write("\n") }
     temp_file_write.write(text)
   end
   temp_file_write.close
@@ -52,9 +52,9 @@ def update(id, text)
   temp_file_read.each { |line| file_write.write(line) }
 
   temp_file_read.close
-  temp_file_write.close
+  file_write.close
 
-  File.delete("temp_#{FILE_NAME}") if File.exist?(FILE_NAME)
+  File.delete("temp_#{FILE_NAME}") if File.exist?("temp_#{FILE_NAME}")
 end
 
 def delete(id)
@@ -85,7 +85,7 @@ def delete(id)
   temp_file_read.each { |line| file_write.write(line) }
 
   temp_file_read.close
-  temp_file_write.close
+  file_write.close
 
   File.delete("temp_#{FILE_NAME}") if File.exist?(FILE_NAME)
 end
