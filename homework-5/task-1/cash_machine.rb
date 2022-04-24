@@ -1,5 +1,5 @@
 class CashMachine
-  BALANCE_FILE = "balance.txt"
+  BALANCE_FILE = "./balance.txt"
   attr_reader :balance
 
   private
@@ -28,6 +28,7 @@ class CashMachine
     end
     if withdraw_sum > @balance
       puts "Вы не можете снять больше, чем у Вас на балансе."
+      return
     end
 
     @balance -= withdraw_sum
@@ -66,4 +67,4 @@ class CashMachine
   end
 end
 
-CashMachine.new.init
+#CashMachine.new.init

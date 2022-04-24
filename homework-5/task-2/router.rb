@@ -33,6 +33,7 @@ class PostsController
 
   def index
     @posts.each_with_index { |post, index| puts "#{index}: #{post}" }
+    @posts
   end
 
   def show
@@ -46,6 +47,7 @@ class PostsController
     end
 
     puts @posts[index]
+    @posts[index]
   end
 
   def create
@@ -118,4 +120,4 @@ end
 
 router = Router.new
 
-router.init
+#router.init
