@@ -1,5 +1,5 @@
 require 'rspec/core'
-require_relative '../App/Core/url_worker'
+require_relative '../web-client/App/Core/url_worker'
 
 RSpec.describe URLWorker do
   it "check that url identical" do

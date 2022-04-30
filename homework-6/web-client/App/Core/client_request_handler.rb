@@ -31,7 +31,6 @@ class ClientRequestHandler
 
     while (connection = @server.accept)
       request = connection.gets
-      puts request
       method, route = request.split(' ')
 
       response = call_required_method(route, method)

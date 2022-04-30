@@ -7,7 +7,7 @@ class Response
 
   public
 
-  def initialize(body = '', status_code = 200, headers = { 'Content-Type' => 'text/html' })
+  def initialize(body = '', status_code = 200, headers = { 'Content-Type' => 'text/html; charset=utf8' })
     @body = body
     @status_code = status_code
     @headers = headers
@@ -16,7 +16,7 @@ class Response
   def get_response
     answer_head = "HTTP/1.1 #{@status_code}\n"
     answer_header = form_answer_headers
-    answer_body = "#{@body}"
+    answer_body = "#{@body}\n"
 
     answer_head + answer_header + answer_body
   end

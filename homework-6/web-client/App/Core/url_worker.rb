@@ -85,7 +85,3 @@ class URLWorker
     make_url_arguments
   end
 end
-
-#url_worker = URLWorker.new("/index/15/16", "GET")
-#url_worker.url_match?("/index/{id}/{date}", { requested_method: "GET" })
-#puts url_worker.get_url_arguments
