@@ -10,15 +10,23 @@ class CashMachineController < Controller
   end
 
   def withdraw
-    cash_machine_service = CashMachineService.new
-    result = cash_machine_service.withdraw(@arguments["withdraw_sum"].to_f)
+    result = "You didn't specify how much to withdraw"
+
+    if @arguments.key?("value")
+      cash_machine_service = CashMachineService.new
+      result = cash_machine_service.withdraw(@arguments["value"].to_f)
+    end
 
     Response.new(result)
   end
 
   def deposite
-    cash_machine_service = CashMachineService.new
-    result = cash_machine_service.deposite(@arguments["deposite_sum"].to_f)
+    result = "You didn't specify how much to deposite"
+
+    if @arguments.key?("value")
+      cash_machine_service = CashMachineService.new
+      result = cash_machine_service.deposite(@arguments["value"].to_f)
+    end
 
     Response.new(result)
   end

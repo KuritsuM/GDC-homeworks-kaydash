@@ -1,5 +1,5 @@
-class URLWorker
-  attr_reader :url, :found_url
+class ReadableURLWorker
+  attr_reader :found_url
   private
 
   def initialize(url, method)
@@ -68,7 +68,9 @@ class URLWorker
 
   def url_match?(checking_url, additional_info)
     if !url_signature_match?(checking_url)
-      return false
+      if !url_signature_match?(checking_url[0..-2])
+        return false
+      end
     end
 
     if @method != additional_info[:requested_method]

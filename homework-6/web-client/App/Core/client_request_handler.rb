@@ -1,13 +1,12 @@
 require 'socket'
-require_relative 'url_worker'
+require_relative 'url_worker_factory'
 require_relative 'response'
-require_relative '../src/Controller/index'
 
 class ClientRequestHandler
   private
 
   def call_required_method(route, method)
-    url_worker = URLWorker.new(route, method)
+    url_worker = URLWorkerFactory.make_url_worker(route, method, @readable_url)
 
     @routes.each_key { |key| url_worker.url_match?(key, @routes[key]) }
 
@@ -22,8 +21,9 @@ class ClientRequestHandler
 
   public
 
-  def initialize(ip = '127.0.0.1', port = 3000)
+  def initialize(ip = '127.0.0.1', port = 3000, readable_url: true)
     @server = TCPServer.new(ip, port)
+    @readable_url = readable_url
   end
 
   def run_client(routes)
