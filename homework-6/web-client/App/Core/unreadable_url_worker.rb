@@ -30,7 +30,7 @@ class UnreadableURLWorker
 
   public
 
-  def url_match?(url, additional_info)
+  def url_match?(url, additional_info = { requested_method: "GET" })
     if @clean_url != url
       if @clean_url != "#{url}/"
         return false
